@@ -1,12 +1,13 @@
 import React from 'react';
 import Badge from '../Badge/Badge';
 import { CiStar } from 'react-icons/ci';
+import { Link } from 'react-router';
 
 const BookCard = ({ book }) => {
 
     
     return (
-        <div className='p-6 border border-[#131313]/15 w-93.5 mx-auto'>
+        <Link to={`/bookDetails/${book.bookId}`} className='p-6 border border-[#131313]/15 w-93.5 mx-auto'>
             {/* card image */}
             <div className='bg-[#F3F3F3] max-w-81.5 py-8 rounded-2xl'>
                 <img className='h-41.5 mx-auto' src={book.image} alt="" />
@@ -14,7 +15,7 @@ const BookCard = ({ book }) => {
             {/* card budges */}
             <div className='flex items-center gap-2 mt-6'>
                 {
-                    book.tags.map(tag => <Badge text={tag} />)
+                    book.tags.map((tag, index) => <Badge key={index} text={tag} />)
                 }
             </div>
             {/* card title */}
@@ -31,7 +32,7 @@ const BookCard = ({ book }) => {
                     <CiStar className='text-2xl font-bold' />
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
