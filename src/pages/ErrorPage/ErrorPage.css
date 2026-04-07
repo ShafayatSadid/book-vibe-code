@@ -1,0 +1,53 @@
+/* Center everything on the screen */
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    background-color: #f8f9fa; /* Light grey background */
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.error-code {
+    font-size: 8rem; /* Very large text */
+    margin: 0;
+    color: #007bff; /* Primary blue color */
+}
+
+.error-message {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.error-description {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Style the button */
+.home-button {
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #0056b3; /* Darker blue when mouse hovers */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .error-code {
+        font-size: 5rem;
+    }
+    .error-message {
+        font-size: 1.5rem;
+    }
+}

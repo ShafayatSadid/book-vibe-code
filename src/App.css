@@ -1,0 +1,28 @@
+.work-sans{
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+
+  font-style: normal;
+}
+
+.playfair {
+  font-family: "Playfair", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.active{
+  color: #23BE0A;
+  border: 1px solid #23BE0A;
+}
+
+/* Button Colors */
+.button1{
+  background-color: #23BE0A;
+  color: #ffffff;
+}
+
+.button2{
+  background-color: #59C6D2;
+  color: #ffffff;
+}
