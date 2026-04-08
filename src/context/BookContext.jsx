@@ -6,18 +6,18 @@ export const BookContext = createContext()
 const BookProvider = ({ children }) => {
 
     // handle read books
-    const [storedBooks, setStoredBooks] = useState([]);
+    const [readList, setReadList] = useState([]);
 
     const handleReadBooks = (readBook) => {
 
         // validate the book
-        const isExist = storedBooks.find(storedBook => readBook.bookId === storedBook.bookId);
+        const isExist = readList.find(storedBook => readBook.bookId === storedBook.bookId);
         
         if(isExist){
             toast.warn('The book is already exist');
         }
         else{
-            setStoredBooks([...storedBooks, readBook]);
+            setReadList([...readList, readBook]);
             toast.success(`${readBook.bookName} is add to list.`)
         }
 
@@ -25,15 +25,15 @@ const BookProvider = ({ children }) => {
     }
 
     // handle listed books
-    const [listedBooks, setListedBooks] = useState([]);
+    const [wishList, setWishList] = useState([]);
 
     const handleListedBooks = (wishBook) => {
 
         // validate the book is on read list or not.
-        const isExist = storedBooks.find(storedBook => wishBook.bookId === storedBook.bookId);
+        const isExist = readList.find(storedBook => wishBook.bookId === storedBook.bookId);
 
         // validate this book is already your wishlist.
-        const isWishlist = listedBooks.find(listedBook => wishBook.bookId === listedBook.bookId);
+        const isWishlist = wishList.find(listedBook => wishBook.bookId === listedBook.bookId);
 
         if(isExist){
             toast.error('The book is already in your read list.');
@@ -43,7 +43,7 @@ const BookProvider = ({ children }) => {
             toast.warn(`The book is already in your Wishlist.`)
         }
         else{
-            setListedBooks([...listedBooks, wishBook]);
+            setWishList([...wishList, wishBook]);
             toast.success(`${wishBook.bookName} is add to your wishlist.`)
         }
 
@@ -52,11 +52,11 @@ const BookProvider = ({ children }) => {
 
     const test = {
         handleReadBooks,
-        storedBooks,
-        setStoredBooks,
+        storedBooks: readList,
+        setStoredBooks: setReadList,
         handleListedBooks,
-        listedBooks,
-        setListedBooks
+        listedBooks: wishList,
+        setListedBooks: setWishList
     };
 
     return <BookContext.Provider value={test}>
