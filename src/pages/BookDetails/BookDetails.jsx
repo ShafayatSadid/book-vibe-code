@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import Badge from '../../components/Badge/Badge';
+import BookProvider, { BookContext } from '../../context/BookContext';
 
 const BookDetails = () => {
 
+    // Load all books data
     const books = useLoaderData()
     const { id } = useParams();
 
     const expectedBook = books.find(book => book.bookId == id);
 
     const { bookName, author, image, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = expectedBook;
+
+    // book context
+    const { handleReadBooks, handleListedBooks } = useContext(BookContext);
 
     return (
         <div className='px-4 mt-8 md:mt-12 lg:flex items-center gap-12 max-w-[1170px] mx-auto mb-[164px] '>
@@ -73,8 +78,8 @@ const BookDetails = () => {
 
                 {/* Card btn */}
                 <div className='flex items-center gap-4 mt-8'>
-                    <button className='btn btn-ghost button3'>Read</button>
-                    <button className='btn btn-ghost button2'>Wishlist</button>
+                    <button onClick={() => handleReadBooks(expectedBook)} className='btn btn-ghost button3'>Read</button>
+                    <button onClick={()=> handleListedBooks(expectedBook)} className='btn btn-ghost button2'>Wishlist</button>
                 </div>
             </div>
         </div>
