@@ -4,7 +4,7 @@ import Books from '../../components/Books/Books';
 
 const Home = () => {
     return (
-        <div>
+        <div className='mb-[164px] '>
             <Banner />
             <Books/>
         </div>
