@@ -2,29 +2,44 @@ import React, { useContext } from 'react';
 import { BookContext } from '../../context/BookContext';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import ReadLists from '../../components/BookList/ReadLists';
+import WishLists from '../../components/BookList/WishLists';
 
 const BookPage = () => {
 
-    const { storedBooks, listedBooks } = useContext(BookContext);
+    const { readList, wishList } = useContext(BookContext);
 
     // console.log(storedBooks);
     return (
         <div>
-            <h1>Books</h1>
-            <Tabs>
-                <TabList>
-                    <Tab>Readlist</Tab>
-                    <Tab>Wishlist</Tab>
-                </TabList>
+            
 
-                <TabPanel>
-                    <h2>Readlist: {storedBooks.length} </h2>
-                </TabPanel>
+            <div className='max-w-[1170px] mx-auto mb-20'>
 
-                <TabPanel>
-                    <h2>Wishlist: {listedBooks.length} </h2>
-                </TabPanel>
-            </Tabs>
+                <Tabs>
+                    <TabList>
+                        <Tab>Readlist</Tab>
+                        <Tab>Wishlist</Tab>
+                    </TabList>
+
+                    <TabPanel>
+                        <div className=''>
+                            {
+                                readList.map(book => <ReadLists key={book.bookId} book={book} />)
+                            }
+                        </div>
+                    </TabPanel>
+
+                    <TabPanel>
+                        <div>
+                            {
+                                wishList.map(book => <WishLists key={book.bookId} book={book} />)
+                            }
+                        </div>
+                    </TabPanel>
+                </Tabs>
+            </div>
+
         </div>
     );
 };

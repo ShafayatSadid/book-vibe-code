@@ -52,11 +52,11 @@ const BookProvider = ({ children }) => {
 
     const test = {
         handleReadBooks,
-        storedBooks: readList,
-        setStoredBooks: setReadList,
+        readList,
+        setReadList,
         handleListedBooks,
-        listedBooks: wishList,
-        setListedBooks: setWishList
+        wishList,
+        setWishList
     };
 
     return <BookContext.Provider value={test}>
