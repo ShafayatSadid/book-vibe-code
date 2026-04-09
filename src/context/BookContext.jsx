@@ -24,7 +24,7 @@ const BookProvider = ({ children }) => {
         
     }
 
-    // handle listed books
+    // handle wishlist books
     const [wishList, setWishList] = useState([]);
 
     const handleListedBooks = (wishBook) => {
