@@ -1,12 +1,13 @@
 import React, { createContext, useState } from 'react';
 import { toast } from 'react-toastify';
+import { getAllReadListFromLocalDB } from '../utils/localDB';
 
 export const BookContext = createContext()
 
 const BookProvider = ({ children }) => {
 
     // handle read books
-    const [readList, setReadList] = useState([]);
+    const [readList, setReadList] = useState(()=> getAllReadListFromLocalDB());
 
     const handleReadBooks = (readBook) => {
 
